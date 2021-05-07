@@ -16,8 +16,8 @@ class Server {
     // config de sockets
 
     this.io = socketio(this.server, {
-      path: "/socket.io",
-      serveClient: false,
+      // path: "/socket.io",
+      // serveClient: false,
     });
 
     // express 3x
@@ -50,7 +50,7 @@ class Server {
     this.app.use(express.static(path.resolve(__dirname, "../public")));
 
     this.app.use(cors());
-    this.app.use(express.static(__dirname));
+    // this.app.use(express.static(__dirname));
   }
 
   configSockets() {
