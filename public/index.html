@@ -55,9 +55,20 @@
 
 
         // const socket = io('http://localhost:2000/chat')
+        const socket = io('http://localhost:2000/', {
+            'path': window.location.pathname
+        })
+
+        const productSocket = io("https://www.bmosoluciones.com/chat", { forceNew: true });
+
+        productSocket.on('mensaje-from-server', () => {
+            console.log(6526565);
+        })
+
+
         // const socket = io('https://www.bmosoluciones.com/chat/')
 
-        const socket = io.connect('https://www.bmosoluciones.com/', {
+        /* const socket = io.connect('https://www.bmosoluciones.com/', {
             'path': window.location.pathname
         });
 
@@ -89,7 +100,7 @@
         bbb.on('connect', () => {
             console.log('conectado');
         })
-
+ */
 
 
         // const socket = io('http://localhost:2000/chat', {

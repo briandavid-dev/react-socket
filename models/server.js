@@ -16,8 +16,7 @@ class Server {
     // config de sockets
     this.io = socketio(this.server, {
       cors: {
-        // origin: "*",
-        origin: false,
+        origin: "*",
       },
 
       // cors: {
