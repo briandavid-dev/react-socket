@@ -66,6 +66,8 @@
             'path': '/chat'
         })
 
+        console.log(`socket`, socket.path)
+
         socket.on('connect', () => {
             console.log('conectado');
         })
