@@ -38,10 +38,7 @@ class Server {
 
   middlewares() {
     // Desplegar el directorio publico
-    this.app.use(
-      "/nuevo-chat",
-      express.static(path.resolve(__dirname, "../public"))
-    );
+    this.app.use(express.static(path.resolve(__dirname, "../public")));
 
     this.app.use(cors());
   }

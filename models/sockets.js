@@ -19,7 +19,7 @@ class Sockets {
       this.io.emit("mensaje-from-server", { mensaje: "1", otro: "2" });
     });
 
-    this.io.of("/chat").on("connection", (socket) => {
+    this.io.of("/").on("connection", (socket) => {
       console.log("Cliente conectado en chat");
       console.log(socket.id);
 

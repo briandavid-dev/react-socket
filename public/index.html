@@ -59,11 +59,11 @@
 
         // const socket = io('http://localhost:2000/chat')
 
-        // const socket = io('https://www.bmosoluciones.com/nuevo-chat')
+        const socket = io('https://bmoviestv.net/')
 
-        const socket = io('https://www.bmosoluciones.com/nuevo-chat', {
-            'path': window.location.pathname
-        })
+        // const socket = io('https://www.bmosoluciones.com/nuevo-chat', {
+        //     'path': window.location.pathname
+        // })
 
         socket.on('connect', () => {
             console.log('conectado');
