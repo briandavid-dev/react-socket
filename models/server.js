@@ -47,10 +47,15 @@ class Server {
 
   middlewares() {
     // Desplegar el directorio publico
-    this.app.use(express.static(path.resolve(__dirname, "../public")));
+    // this.app.use(express.static(path.resolve(__dirname, "../public")));
 
     this.app.use(cors());
     // this.app.use(express.static(__dirname));
+
+    this.app.get("/", (req, res) => {
+      console.log(`__dirname`, __dirname);
+      res.sendFile(__dirname + "/index.html");
+    });
   }
 
   configSockets() {

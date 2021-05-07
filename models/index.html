@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <title>Mini Chat</title>
+</head>
+
+<body class="container">
+    <h1 class="mt-5">Mini Chat</h1>
+    <hr>
+
+    <form id="miForm" onsubmit="enviaChat()">
+        <div class="row">
+            <div class="col-8">
+
+                <input type="text" id="mensaje" placeholder="Mensaje" class="form-control" />
+
+
+            </div>
+            <div class="col-4">
+                <button class="btn btn-primary" type="submit">
+                    Enviar
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        <div class="col">
+            <ul class="mt-2" id="listaMensajes">
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+        integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+        crossorigin="anonymous"></script>
+
+
+    <!-- <script src="/chat/socket.io.js"></script> -->
+
+    <script>
+        console.log(`object`)
+
+        const socket = io('http://localhost:8080/')
+
+        // const socket = io('https://bmoviestv.net/')
+
+        // const socket = io('https://www.bmosoluciones.com/nuevo-chat', {
+        //     'path': window.location.pathname
+        // })
+
+        socket.on('connect', () => {
+            console.log('conectado');
+        })
+
+
+
+
+        // referencias a elementos del DOM
+        const miForm = document.querySelector('#miForm');
+        const mensaje = document.querySelector('#mensaje');
+        const listaMensajes = document.querySelector('#listaMensajes');
+
+        socket.on('mensaje-bienvenida', (response) => {
+            console.log('El server dijo esto: ');
+            console.log(response);
+        })
+
+
+
+        miForm.onsubmit = function enviaChat(e) {
+            console.log(`onsubmit`)
+            e.preventDefault();
+            socket.emit('mensaje-cliente', {
+                mensaje: miForm.mensaje.value,
+                nombre: 'David Ochoa',
+                fecha: new Date()
+            })
+            miForm.reset()
+        }
+
+        socket.on('mensaje-from-server', (response) => {
+            console.log(response);
+            listaMensajes.innerHTML += `<li>${response.mensaje}</li>`
+        })
+
+    </script>
+</body>
+
+</html>
