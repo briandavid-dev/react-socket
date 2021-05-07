@@ -69,12 +69,12 @@ class Server {
     this.configSockets();
 
     this.server.listen(this.port, () => {
-      const addr = this.app.address();
-      console.log(
-        "   app listening on http://" + addr.address + ":" + this.port
-      );
+      // const addr = this.app.address();
+      // console.log(
+      //   "   app listening on http://" + addr.address + ":" + this.port
+      // );
 
-      // console.log("Server listen in " + this.port)
+      console.log("Server listen in " + this.port);
     });
   }
 }
