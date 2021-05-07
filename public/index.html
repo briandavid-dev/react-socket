@@ -41,45 +41,11 @@
         </div>
     </div>
 
-
-
-
-
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
         integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
         crossorigin="anonymous"></script>
 
-
-    <!-- <script src="/chat/socket.io.js"></script> -->
-
     <script>
-        console.log(`object`)
-        console.log(`otroSocket antes`)
-
-
-        const otroSocket = io();
-        console.log(`otroSocket`)
-        console.log(otroSocket)
-
-
-        // const socket = io('http://localhost:80/')
-
-        // const socket = io('https://bmoviestv.net/')
-
-        // const socket = io('https://www.bmosoluciones.com/chat/')
-        const socket = io('https://www.bmosoluciones.com/', {
-            path: "/projects/chat/socket.io",
-        })
-
-
-
-        socket.on('connect', () => {
-            console.log('conectado');
-        })
-
-
 
 
         // referencias a elementos del DOM
@@ -87,12 +53,13 @@
         const mensaje = document.querySelector('#mensaje');
         const listaMensajes = document.querySelector('#listaMensajes');
 
-        socket.on('mensaje-bienvenida', (response) => {
-            console.log('El server dijo esto: ');
-            console.log(response);
+        const socket = io('https://www.bmosoluciones.com/', {
+            path: "/projects/chat/socket.io",
         })
 
-
+        socket.on('connect', () => {
+            console.log('conectado');
+        })
 
         miForm.onsubmit = function enviaChat(e) {
             console.log(`onsubmit`)

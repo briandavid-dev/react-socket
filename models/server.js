@@ -26,15 +26,17 @@ class Server {
 
   middlewares() {
     // Desplegar el directorio publico
-    // this.app.use(express.static(path.resolve(__dirname, "../public")));
+    this.app.use(
+      "/projects/chat",
+      express.static(path.resolve(__dirname, "../public"))
+    );
+    // o
+    // this.app.get("/projects/chat", (req, res) => {
+    //   console.log(`__dirname`, __dirname);
+    //   res.sendFile(__dirname + "/index.html");
+    // });
 
     this.app.use(cors());
-    // this.app.use(express.static(__dirname));
-
-    this.app.get("/projects/chat", (req, res) => {
-      console.log(`__dirname`, __dirname);
-      res.sendFile(__dirname + "/index.html");
-    });
   }
 
   configSockets() {
