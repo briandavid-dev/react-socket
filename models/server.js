@@ -16,10 +16,13 @@ class Server {
     // config de sockets
     this.io = socketio(this.server, {
       cors: {
-        origin: "https://www.bmosoluciones.com/",
-        methods: ["GET", "POST"],
-        credentials: true,
+        origin: "*",
       },
+      // cors: {
+      //   origin: "https://www.bmosoluciones.com/",
+      //   methods: ["GET", "POST"],
+      //   credentials: true,
+      // },
     });
   }
 
