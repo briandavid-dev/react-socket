@@ -19,6 +19,9 @@ class Server {
     this.io = socketio(this.server, {
       path: "/chat/socket.io",
       // serveClient: false,
+      cors: {
+        origin: "*",
+      },
     });
 
     // express 3x
