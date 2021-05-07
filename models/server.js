@@ -17,7 +17,7 @@ class Server {
     // config de sockets
 
     this.io = socketio(this.server, {
-      path: "/projects/chat/socket.io",
+      path: "/chat/socket.io",
       // serveClient: false,
       cors: {
         origin: "*",
