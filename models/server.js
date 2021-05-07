@@ -17,6 +17,9 @@ class Server {
 
     this.io = socketio(this.server);
 
+    // express 3x
+    // var io = require('socket.io').listen(server);
+
     /* this.io = socketio(this.server, {
       // serveClient: false,
       // path: "/chat",
@@ -44,6 +47,7 @@ class Server {
     this.app.use(express.static(path.resolve(__dirname, "../public")));
 
     this.app.use(cors());
+    this.app.use(express.static(__dirname));
   }
 
   configSockets() {
