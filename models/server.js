@@ -56,7 +56,7 @@ class Server {
     this.app.use(cors());
     // this.app.use(express.static(__dirname));
 
-    this.app.get("/chat", (req, res) => {
+    this.app.get("/projects/chat", (req, res) => {
       console.log(`__dirname`, __dirname);
       res.sendFile(__dirname + "/index.html");
     });
