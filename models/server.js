@@ -15,14 +15,15 @@ class Server {
 
     // config de sockets
     this.io = socketio(this.server, {
-      // cors: {
-      //   origin: "*",
-      // },
-
       cors: {
-        origin: "http://localhost:2000",
-        methods: ["GET", "POST"],
+        // origin: "*",
+        origin: false,
       },
+
+      // cors: {
+      //   origin: "http://localhost:2000",
+      //   methods: ["GET", "POST"],
+      // },
 
       // cors: {
       //   origin: "https://www.bmosoluciones.com/",

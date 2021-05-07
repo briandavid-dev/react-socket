@@ -53,12 +53,14 @@
 
     <script>
 
-        // const socket = io('http://localhost:2000', {
+        // const socket = io('http://localhost:2000/chat', {
         //     withCredentials: true
         // })
-        const socket = io('https://www.bmosoluciones.com/chat', {
-            withCredentials: true
-        })
+        // const socket = io('https://www.bmosoluciones.com/chat', {
+        //     withCredentials: true
+        // })
+
+        const socket = io('https://bmosoluciones.com:2000', { transport: ['websocket'] });
 
 
         // const socket = io.connect('http://localhost:2000/', {
