@@ -16,6 +16,7 @@ class Server {
     // config de sockets
     this.io = socketio(this.server, {
       // serveClient: false,
+      // path: "/chat",
       cors: {
         origin: "*",
       },
@@ -32,12 +33,15 @@ class Server {
       // },
     });
 
-    this.io.path("/chat");
+    // this.io.path("/chat");
   }
 
   middlewares() {
     // Desplegar el directorio publico
-    this.app.use("/chat", express.static(path.resolve(__dirname, "../public")));
+    this.app.use(
+      "/nuevo-chat",
+      express.static(path.resolve(__dirname, "../public"))
+    );
 
     this.app.use(cors());
   }

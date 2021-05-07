@@ -52,16 +52,18 @@
         crossorigin="anonymous"></script>
 
 
-    <script src="/chat/socket.io.js"></script>
+    <!-- <script src="/chat/socket.io.js"></script> -->
 
     <script>
         console.log(`object`)
 
         // const socket = io('http://localhost:2000/chat')
-        // const socket = io('https://www.bmosoluciones.com/chat')
-        const socket = io('https://www.bmosoluciones.com/chat', {
-            'path': window.location.pathname
-        })
+
+        const socket = io('https://www.bmosoluciones.com/nuevo-chat')
+
+        // const socket = io('https://www.bmosoluciones.com/chat', {
+        //     'path': window.location.pathname
+        // })
 
         socket.on('connect', () => {
             console.log('conectado');
