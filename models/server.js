@@ -18,35 +18,10 @@ class Server {
 
     this.io = socketio(this.server, {
       path: "/projects/chat/socket.io",
-      // serveClient: false,
       cors: {
         origin: "*",
       },
     });
-
-    // express 3x
-    // var io = require('socket.io').listen(server);
-
-    /* this.io = socketio(this.server, {
-      // serveClient: false,
-      // path: "/chat",
-      cors: {
-        origin: "*",
-      },
-
-      // cors: {
-      //   origin: "http://localhost:2000",
-      //   methods: ["GET", "POST"],
-      // },
-
-      // cors: {
-      //   origin: "https://www.bmosoluciones.com/",
-      //   methods: ["GET", "POST"],
-      //   credentials: true,
-      // },
-    }); */
-
-    // this.io.path("/chat");
   }
 
   middlewares() {
@@ -72,11 +47,6 @@ class Server {
     this.configSockets();
 
     this.server.listen(this.port, () => {
-      // const addr = this.app.address();
-      // console.log(
-      //   "   app listening on http://" + addr.address + ":" + this.port
-      // );
-
       console.log("Server listen in " + this.port);
     });
   }
