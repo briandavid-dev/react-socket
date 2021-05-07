@@ -53,7 +53,29 @@
 
     <script>
 
-        const socket = io('http://localhost:2000/')
+        // const socket = io('http://localhost:2000', {
+        //     withCredentials: true
+        // })
+        const socket = io('https://www.bmosoluciones.com/chat', {
+            withCredentials: true
+        })
+
+
+        // const socket = io.connect('http://localhost:2000/', {
+        //     'path': window.location.pathname
+        // });
+
+
+        // const socket = io.connect('https://www.bmosoluciones.com/', {
+        //     /* 'path': '/chat' */
+        //     'path': window.location.pathname
+        // });
+
+        socket.on('connect', () => {
+            console.log('conectado');
+        })
+
+
 
         // referencias a elementos del DOM
         const miForm = document.querySelector('#miForm');

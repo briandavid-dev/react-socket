@@ -15,6 +15,8 @@ class Sockets {
         // socket.emit("mensaje-from-server", response);
         this.io.emit("mensaje-from-server", response);
       });
+
+      this.io.emit("mensaje-from-server", { mensaje: "1", otro: "2" });
     });
   }
 }

@@ -2,6 +2,7 @@ const express = require("express");
 const http = require("http");
 const socketio = require("socket.io");
 const path = require("path");
+const cors = require("cors");
 const Sockets = require("./sockets");
 
 class Server {
@@ -13,12 +14,20 @@ class Server {
     this.server = http.createServer(this.app);
 
     // config de sockets
-    this.io = socketio(this.server);
+    this.io = socketio(this.server, {
+      cors: {
+        origin: "https://www.bmosoluciones.com/",
+        methods: ["GET", "POST"],
+        credentials: true,
+      },
+    });
   }
 
   middlewares() {
     // Desplegar el directorio publico
-    this.app.use(express.static(path.resolve(__dirname, "../public")));
+    this.app.use("/chat", express.static(path.resolve(__dirname, "../public")));
+
+    this.app.use(cors());
   }
 
   configSockets() {
