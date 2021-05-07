@@ -14,7 +14,10 @@ class Server {
     this.server = http.createServer(this.app);
 
     // config de sockets
-    this.io = socketio(this.server, {
+
+    this.io = socketio.listen(this.server);
+
+    /* this.io = socketio(this.server, {
       // serveClient: false,
       // path: "/chat",
       cors: {
@@ -31,7 +34,7 @@ class Server {
       //   methods: ["GET", "POST"],
       //   credentials: true,
       // },
-    });
+    }); */
 
     // this.io.path("/chat");
   }
