@@ -15,6 +15,7 @@ class Server {
 
     // config de sockets
     this.io = socketio(this.server, {
+      serveClient: false,
       cors: {
         origin: "*",
       },
@@ -30,6 +31,8 @@ class Server {
       //   credentials: true,
       // },
     });
+
+    this.io.path("/chat");
   }
 
   middlewares() {
