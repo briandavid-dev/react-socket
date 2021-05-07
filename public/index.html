@@ -76,6 +76,18 @@
             listaMensajes.innerHTML += `<li>${response.mensaje}</li>`
         })
 
+        const aaa = io(); // or io("/"), the main namespace
+        const bbb = io("/chat");
+
+        aaa.on('connect', () => {
+            console.log('conectado');
+        })
+        bbb.on('connect', () => {
+            console.log('conectado');
+        })
+
+
+
         // const socket = io('http://localhost:2000/chat', {
         //     withCredentials: true
         // })
