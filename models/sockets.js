@@ -29,7 +29,10 @@ class Sockets {
       });
 
       socket.emit("mensaje-from-server", { mensaje: "3", otro: "4" });
+      this.io.emit("mensaje-from-server", { mensaje: "1", otro: "2" });
     });
+
+    this.io.emit("mensaje-from-server", { mensaje: "1", otro: "2" });
   }
 }
 
