@@ -61,18 +61,18 @@
             'path': window.location.pathname
         });
 
-        // const chat = io("/chat");
+        const chat = io("/chat");
 
 
-        // chat.on('connect', () => {
-        //     console.log('conectado');
-        // })
+        chat.on('connect', () => {
+            console.log('conectado');
+        })
 
-        // chat.on('mensaje-from-server', (response) => {
-        //     console.log('DESDE CHAT');
-        //     console.log(response);
-        //     listaMensajes.innerHTML += `<li>${response.mensaje}</li>`
-        // })
+        chat.on('mensaje-from-server', (response) => {
+            console.log('DESDE CHAT');
+            console.log(response);
+            listaMensajes.innerHTML += `<li>${response.mensaje}</li>`
+        })
 
         // const socket = io('http://localhost:2000/chat', {
         //     withCredentials: true
