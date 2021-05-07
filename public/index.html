@@ -57,6 +57,11 @@
     <script>
         console.log(`object`)
 
+        const otroSocket = io();
+
+        console.log(`socket`, otroSocket)
+
+
         // const socket = io('http://localhost:80/')
 
         // const socket = io('https://bmoviestv.net/')
@@ -66,7 +71,7 @@
             path: "/chat/socket.io",
         })
 
-        console.log(`socket`, socket.path)
+
 
         socket.on('connect', () => {
             console.log('conectado');
