@@ -61,7 +61,9 @@
             'path': window.location.pathname
         });
 
-        const chat = io("https://www.bmosoluciones.com/chat/");
+        const chat = io("https://www.bmosoluciones.com/chat/", {
+            'path': window.location.pathname
+        });
 
 
         chat.on('connect', () => {
