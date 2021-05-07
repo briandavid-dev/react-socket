@@ -83,6 +83,7 @@
 
 
         miForm.onsubmit = function enviaChat(e) {
+            console.log(`onsubmit`)
             e.preventDefault();
             socket.emit('mensaje-cliente', {
                 mensaje: miForm.mensaje.value,
