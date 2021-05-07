@@ -18,7 +18,7 @@ class Server {
 
     this.io = socketio(this.server, {
       path: "/chat/socket.io",
-      // serveClient: false,
+      serveClient: false,
     });
 
     // express 3x
