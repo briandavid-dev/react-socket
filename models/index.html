@@ -56,6 +56,13 @@
 
     <script>
         console.log(`object`)
+        console.log(`otroSocket antes`)
+
+
+        const otroSocket = io();
+        console.log(`otroSocket`)
+        console.log(otroSocket)
+
 
         // const socket = io('http://localhost:80/')
 
@@ -63,8 +70,10 @@
 
         // const socket = io('https://www.bmosoluciones.com/chat/')
         const socket = io('https://www.bmosoluciones.com/', {
-            'path': '/chat'
+            path: "/chat/socket.io",
         })
+
+
 
         socket.on('connect', () => {
             console.log('conectado');
