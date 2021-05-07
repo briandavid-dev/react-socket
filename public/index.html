@@ -59,7 +59,7 @@
             'path': window.location.pathname
         })
 
-        const productSocket = io("https://www.bmosoluciones.com/chat", { forceNew: true });
+        const productSocket = io("https://www.bmosoluciones.com/chat/chat", { forceNew: true });
 
         productSocket.on('mensaje-from-server', () => {
             console.log(6526565);
