@@ -4,6 +4,7 @@ const socketio = require("socket.io");
 const path = require("path");
 const cors = require("cors");
 const Sockets = require("./sockets");
+const { constants } = require("crypto");
 
 class Server {
   constructor() {
@@ -67,9 +68,14 @@ class Server {
 
     this.configSockets();
 
-    this.server.listen(this.port, () =>
-      console.log("Server listen in " + this.port)
-    );
+    this.server.listen(this.port, () => {
+      const addr = this.app.address();
+      console.log(
+        "   app listening on http://" + addr.address + ":" + this.port
+      );
+
+      // console.log("Server listen in " + this.port)
+    });
   }
 }
 
