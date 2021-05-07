@@ -76,8 +76,12 @@
             listaMensajes.innerHTML += `<li>${response.mensaje}</li>`
         })
 
-        const aaa = io(); // or io("/"), the main namespace
-        const bbb = io("/chat");
+        const aaa = io("/", {
+            'path': window.location.pathname
+        });
+        const bbb = io("/chat", {
+            'path': window.location.pathname
+        });
 
         aaa.on('connect', () => {
             console.log('conectado');
