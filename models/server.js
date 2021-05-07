@@ -15,7 +15,7 @@ class Server {
 
     // config de sockets
 
-    this.io = socketio.listen(this.server);
+    this.io = socketio(this.server);
 
     /* this.io = socketio(this.server, {
       // serveClient: false,
