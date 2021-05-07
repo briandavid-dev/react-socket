@@ -32,6 +32,8 @@ class Sockets {
       this.io.emit("mensaje-from-server", { mensaje: "1", otro: "2" });
     });
 
+    console.log(`ENVIANDO mensaje-from-server`);
+
     this.io.emit("mensaje-from-server", { mensaje: "1", otro: "2" });
   }
 }
