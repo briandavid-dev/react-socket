@@ -15,7 +15,10 @@ class Server {
 
     // config de sockets
 
-    this.io = socketio(this.server);
+    this.io = socketio(this.server, {
+      path: "/socket.io",
+      serveClient: false,
+    });
 
     // express 3x
     // var io = require('socket.io').listen(server);
