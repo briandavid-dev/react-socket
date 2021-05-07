@@ -17,7 +17,7 @@ class Server {
     // config de sockets
 
     this.io = socketio(this.server, {
-      // path: "/socket.io",
+      path: "/chat/socket.io",
       // serveClient: false,
     });
 

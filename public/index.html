@@ -57,13 +57,13 @@
     <script>
         console.log(`object`)
 
-        // const socket = io('http://localhost:80/')
+        const socket = io('http://localhost:80/')
 
         // const socket = io('https://bmoviestv.net/')
-        const socket = io('https://www.bmosoluciones.com/chat/')
 
-        // const socket = io('https://www.bmosoluciones.com/nuevo-chat', {
-        //     'path': window.location.pathname
+        // const socket = io('https://www.bmosoluciones.com/chat/')
+        // const socket = io('https://www.bmosoluciones.com/', {
+        //     'path': '/chat'
         // })
 
         socket.on('connect', () => {

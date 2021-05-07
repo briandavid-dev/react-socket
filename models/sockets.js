@@ -33,7 +33,10 @@ class Sockets {
     });
 
     console.log(`ENVIANDO mensaje-from-server`);
-    console.log(`this.io`, this.io);
+    // console.log(`this.io`, this.io);
+
+    const socket_ = this.io;
+    console.log("check 1", socket_._path);
 
     this.io.emit("mensaje-from-server", { mensaje: "1", otro: "2" });
   }
